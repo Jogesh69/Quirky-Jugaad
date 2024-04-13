@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> Dash Board || Quirky Jugaad </title>
+    
+    <!-- favicon -->
+    <link rel="icon" href="https://yt3.ggpht.com/a/AGF-l78km1YyNXmF0r3-0CycCA0HLA_i6zYn_8NZEg=s900-c-k-c0xffffffff-no-rj-mo" type="image/gif" sizes="16x16">
+    <!-- header links -->
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <!-- HEADER -->
+    <div id="1"></div>
+    <script>
+        load("header.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(1).innerHTML = req.responseText;
+        }
+    </script>
+     <h1>Welcome to Your Dashboard</h1>
+     <div id="user-info">
+         <p>Email: <span id= "email" ></span></p>
+         <p>Name: <span id= "name" ></span></p>
+     </div>
+ 
+     <script src = "https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js">
+    </script>
+    <script src = "https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js">
+    </script>
+     <script src="firebase-config.js"></script>
+     <script>
+         // Get user data from Firebase Authentication
+         firebase.auth().onAuthStateChanged(user => {
+             if (user) {
+                 const userData = {
+                     email: user.email,
+                 };
+                 displayUserData(userData);
+             } else {
+                 // Redirect to login page if user is not logged in
+                 window.location.href = "login.html";
+             }
+         });
+ 
+         // Function to display user data
+         function displayUserData(userData) {
+             document.getElementById("email").value = userData.email;
+             document.getElementById("name").value = userData.name;
+        
+         }
+     </script>
+    <script src="loggedin.js"></script>    
+</body>
+
+    <!-- FOOTER -->
+    <div id="4"></div>
+    <script>
+        load("footer.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(4).innerHTML = req.responseText;
+        }
+    </script>
+</html>

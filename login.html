@@ -1,0 +1,140 @@
+<html>
+<head>
+   <script src = "https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js">
+   </script>
+   <script src = "https://www.gstatic.com/firebasejs/8.2.7/firebase-auth.js">
+   </script>
+   <style>
+      button {
+         width: 100px;
+         height: auto;
+         padding: 5px 10px;
+         background-color: aqua;
+         border: 2px solid green;
+         border-radius: 12px;
+      }
+   </style>
+    <!-- header links -->
+    <script src="https://kit.fontawesome.com/4a3b1f73a2.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+
+</head>
+<body>
+   
+   <!-- HEADER -->
+    <div id="1"></div>
+    <script>
+        load("header.html");
+        function load(url)
+        {
+            req = new XMLHttpRequest();
+            req.open("GET", url, false);
+            req.send(null);
+            document.getElementById(1).innerHTML = req.responseText;
+        }
+    </script>
+    
+    <div>
+   <h2>
+      Using the <i> Firebase auth </i> to add authentication in a single page static website.
+   </h2>
+   <div class = "container">
+      <h2>Enter the email and password below.</h2>
+      <input type= "text" placeholder ="name" id= "name" /> 
+      <br /> <br />
+      <input type = "email" placeholder = "abcd@gamil.com" id = "email" />
+      <br /> <br />
+      <input type = "password" placeholder = "Add password" id = "password" />
+      <br /> <br />
+      <button onclick = "addUsers()" id = "signUp">
+         SignUp
+      </button>
+      <button onclick = "login()" id = "logIp">
+         SignIn
+      </button>
+      <button onclick = "logout()" id = "logOut">
+         SignOut
+      </button>
+      <br> <br>
+      <div id = "output"> </div>
+   </div>
+   <script>
+      let output = document.getElementById('output');
+      // Your web app's Firebase configuration
+      var initialConfig = {
+         apiKey: "AIzaSyB7e4WnP-a5bnIlJ430xFEgy_u-H2zUA20", // change API keu
+         authDomain: "localhost, quirky-jugaad-e0565.web.app, quirkyjugaad.online", // change domain
+         projectId: "quirky-jugaad-e0565", // change project Id
+         databaseURL: "https://quirky-jugaad-e0565-default-rtdb.asia-southeast1.firebasedatabase.app",
+         storageBucket: "quirky-jugaad-e0565.appspot.com",
+         messagingSenderId: "917834876130",
+         appId: "1:917834876130:web:fad64680f50f1120478abb",
+         measurementId: "G-0T2RDLBK6R",
+      };
+      
+      // Initialize Firebase
+      firebase.initializeApp(initialConfig);
+      const authenticate = firebase.auth();
+      
+      // Check if there are any active users
+      firebase.auth().onAuthStateChanged((user) => {
+         if (user) {
+            var email = user.email;
+            window.location.href = "loggedin.html";
+         } else {
+            output.innerHTML = "No active users" + "<br>";
+         }
+      });
+      
+      // add users
+      function addUsers() {
+         var email = document.getElementById("email").value;
+         var password = document.getElementById("password").value;
+         var name = document.getElementById("name").value;
+         
+         // adding users via the promise
+         authenticate.createUserWithEmailAndPassword(
+            email,
+            password
+         ).then((userCredential) => {
+            output.innerHTML = "User added successfully and user id is " + userCredential.user.uid + "<br>";
+         }).catch((e) => {
+            output.innerHTML = "Some error occurred - " + e.message + "<br>";
+         });
+      }
+      
+      // login function
+      function login() {
+         var email = document.getElementById("email").value;
+         var password = document.getElementById("password").value;
+         authenticate.signInWithEmailAndPassword(
+         email, password).then((userCredential) => {
+            window.location.href = "loggedin.html";
+        }).catch((e) =>  {
+            output.innerHTML = "Some error occurred - " + e.message + "<br>";
+         });
+      }
+      
+      // logout currently logged-in user
+      function logout() {
+         authenticate.signOut();
+         output.innerHTML = "User logout successfully";
+         window.location.href = "login.html";
+      }
+
+   </script>
+   </div>
+</body>
+  <!-- FOOTER -->
+  <div id="4"></div>
+  <script>
+      load("footer.html");
+      function load(url)
+      {
+          req = new XMLHttpRequest();
+          req.open("GET", url, false);
+          req.send(null);
+          document.getElementById(4).innerHTML = req.responseText;
+      }
+  </script>
+</html>

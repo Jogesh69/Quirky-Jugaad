@@ -1,0 +1,42 @@
+[debug] [2024-04-05T20:02:16.697Z] ----------------------------------------------------------------------
+[debug] [2024-04-05T20:02:16.700Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\54321\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2024-04-05T20:02:16.700Z] CLI Version:   13.7.1
+[debug] [2024-04-05T20:02:16.700Z] Platform:      win32
+[debug] [2024-04-05T20:02:16.701Z] Node Version:  v21.7.2
+[debug] [2024-04-05T20:02:16.701Z] Time:          Sat Apr 06 2024 01:32:16 GMT+0530 (India Standard Time)
+[debug] [2024-04-05T20:02:16.701Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2024-04-05T20:02:16.709Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2024-04-05T20:02:16.709Z] > authorizing via signed-in user (54321broke@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\54321\Desktop\E-CommerceWebsite-master
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2024-04-05T20:04:09.614Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2024-04-05T20:04:11.340Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2024-04-05T20:04:11.341Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project quirky-jugaad-e0565 (Quirky Jugaad) 
+[info] 
+=== Hosting Setup
+[debug] [2024-04-05T20:04:12.719Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/quirky-jugaad-e0565 [none]
+[debug] [2024-04-05T20:04:13.477Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/quirky-jugaad-e0565 200
+[debug] [2024-04-05T20:04:13.477Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/quirky-jugaad-e0565 {"projectId":"quirky-jugaad-e0565","projectNumber":"917834876130","displayName":"Quirky Jugaad","name":"projects/quirky-jugaad-e0565","resources":{"hostingSite":"quirky-jugaad-e0565","realtimeDatabaseInstance":"quirky-jugaad-e0565-default-rtdb"},"state":"ACTIVE","etag":"1_e175475a-b17f-4da0-bad9-9186ea8fc896"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
